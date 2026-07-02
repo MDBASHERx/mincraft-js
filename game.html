@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft 2D</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/blocks.css">
+    <link rel="stylesheet" href="./css/game.css">
+</head>
+<body class="game-body">
+    <main class="game-screen">
+        <!-- Sky -->
+        <span class="cloud cloud--one" aria-hidden="true"></span>
+        <span class="cloud cloud--two" aria-hidden="true"></span>
+        <span class="cloud cloud--three" aria-hidden="true"></span>
+
+        <!-- Loading -->
+        <section class="loading-screen" id="loadingScreen">
+            <h2>Minecraft 2D</h2>
+            <p>Generating World...</p>
+
+            <div class="loading-bar">
+                <span></span>
+            </div>
+        </section>
+
+        <!-- World -->
+        <section id="world" class="world"></section>
+
+        <!-- HUD -->
+        <aside class="hud">
+            <p id="depthReadout">Height: --</p>
+        </aside>
+
+        <!-- Hotbar -->
+        <nav class="hotbar">
+            <button class="hotbar_slot" data-tool="axe" type="button" title="Axe">
+                <img src="./assets/hotbar/netherite-axe.png" alt="Axe">
+                <span class="hotbar_key">1</span>
+            </button>
+
+            <button class="hotbar_slot" data-tool="pickaxe" type="button" title="Pickaxe">
+                <img src="./assets/hotbar/netherite-pickaxe.png" alt="Pickaxe">
+                <span class="hotbar_key">2</span>
+            </button>
+
+            <button class="hotbar_slot" data-tool="shovel" type="button" title="Shovel">
+                <img src="./assets/hotbar/netherite-shovel.png" alt="Shovel">
+                <span class="hotbar_key">3</span>
+            </button>
+            <section id="inventory" class="hotbar_items"></section>
+        </nav>
+
+        <!-- Actions -->
+        <aside class="game-actions">
+            <a class="game-action" href="./index.html" title="Menu">🏠</a>
+            <button class="game-action" id="resetBtn" type="button" title="New World">↻</button>
+        </aside>
+    </main>
+    <!-- Scripts -->
+    <script src="./js/tools.js"></script>
+    <script src="./js/inventory.js"></script>
+    <script src="./js/world.js"></script>
+    <script src="./js/game.js"></script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+/* =========================================================
+   LANDING
+========================================================= */
+
+.landing-body 
+{
+    min-height: 100vh;
+    overflow: hidden;
+    background: #244866;
+}
+
+/* =========================================================
+   SCENE
+========================================================= */
+
+.scene 
+{
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    overflow: hidden;
+    background:
+        linear-gradient(rgba(0,0,0,.25), rgba(0,0,0,.35)),
+        url("../assets/background/bg.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* =========================================================
+   FLOATING BLOCKS
+========================================================= */
+
+.scene_float 
+{
+    position: absolute;
+    top: -60px;
+    left: var(--x, 50%);
+    width: 36px;
+    height: 36px;
+    border: 3px solid #000;
+    box-shadow: 0 6px 0 rgba(0,0,0,.25);
+    animation: fallingBlock 8s var(--delay,0s) linear infinite;
+}
+
+/* =========================================================
+   LANDING
+========================================================= */
+
+.landing 
+{
+    display: grid;
+    place-content: center;
+    min-height: 100vh;
+    gap: 44px;
+    padding: 32px;
+    text-align: center;
+    background: radial-gradient(circle at center, rgba(0,0,0,.08), rgba(0,0,0,.48));
+}
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.landing_title 
+{
+    line-height: .78;
+    color: #d7d7d7;
+    font-size: clamp(70px,14vw,170px);
+    letter-spacing: 3px;
+    text-shadow: 5px 5px 0 #333, 9px 9px 0 #111;
+}
+
+.landing_title-row 
+{
+    display: block;
+}
+
+.landing_title-row--accent 
+{
+    color: #79c85a;
+    font-size: .62em;
+    text-shadow: 4px 4px 0 #2c5b22, 7px 7px 0 #111;
+}
+
+/* =========================================================
+   SPLASH
+========================================================= */
+
+.landing_splash 
+{
+    margin-top: 18px;
+    color: #ffff55;
+    font-size: clamp(18px,3vw,32px);
+    text-shadow: 3px 3px #111;
+    transform: rotate(-8deg);
+    animation: splashPulse 1.3s ease-in-out infinite alternate;
+}
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.landing_actions 
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 13px;
+}
+
+/* =========================================================
+   FLOATING CONTROLS
+========================================================= */
+
+.floating-controls 
+{
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    z-index: 100;
+}
+
+/* =========================================================
+   DIALOG
+========================================================= */
+
+.tutorial 
+{
+    margin: auto;
+    width: min(560px, calc(100vw - 30px));
+    border: 4px solid #000;
+    background: #c6c6c6;
+    color: #202020;
+    box-shadow:
+        0 14px 0 rgba(0,0,0,.35),
+        inset 3px 3px 0 #ffffff,
+        inset -3px -3px 0 #555555;
+}
+
+.tutorial::backdrop 
+{
+    background: rgba(0,0,0,.65);
+}
+
+/* =========================================================
+   DIALOG CONTENT
+========================================================= */
+
+.tutorial_content 
+{
+    padding: 26px;
+}
+
+.tutorial_content h2 
+{
+    margin-bottom: 14px;
+    color: #111;
+    font-size: 34px;
+}
+
+.tutorial_content ol,
+.tutorial_content p 
+{
+    margin: 0 0 22px 22px;
+    text-align: left;
+    font-family: Arial, sans-serif;
+    line-height: 1.55;
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes splashPulse 
+{
+    from 
+    {
+        transform: rotate(-8deg) scale(1);
+    }
+    to 
+    {
+        transform: rotate(-8deg) scale(1.08);
+    }
+}
+
+@keyframes fallingBlock 
+{
+    0% 
+    {
+        transform: translateY(-70px) rotate(0deg);
+        opacity: 0;
+    }
+    10%,
+    85% 
+    {
+        opacity: 1;
+    }
+    100% 
+    {
+        transform: translateY(calc(100vh + 100px)) rotate(120deg);
+        opacity: 0;
+    }
+}

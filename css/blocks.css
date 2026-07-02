@@ -1,0 +1,106 @@
+:root {
+    --img-coal: url("../assets/blocks/coal-block.png");
+    --img-diamond: url("../assets/blocks/diamond-block.png");
+    --img-dirt: url("../assets/blocks/dirt-block.png");
+    --img-emerald: url("../assets/blocks/emerald-block.png");
+    --img-gold: url("../assets/blocks/gold-block.png");
+    --img-grass: url("../assets/blocks/grass-block.png");
+    --img-iron: url("../assets/blocks/iron-block.png");
+    --img-oak-leaves: url("../assets/blocks/oak-leaves-block.png");
+    --img-oak-log: url("../assets/blocks/oak-log-block.png");
+    --img-redstone: url("../assets/blocks/redstone-block.png");
+    --img-sand: url("../assets/blocks/sand-block.png");
+    --img-stone: url("../assets/blocks/stone.png");
+}
+
+/* Shared textures */
+.tile,
+.block-icon,
+.inventory_icon,
+.scene_float 
+{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+/* Blocks */
+.tile-grass,
+.icon-grass 
+{
+    background-image: var(--img-grass);
+}
+
+.tile-dirt,
+.icon-dirt 
+{
+    background-image: var(--img-dirt);
+}
+
+.tile-stone,
+.icon-stone 
+{
+    background-image: var(--img-stone);
+}
+
+.tile-sand,
+.icon-sand 
+{
+    background-image: var(--img-sand);
+}
+
+.tile-coal,
+.icon-coal 
+{
+    background-image: var(--img-coal);
+}
+
+.tile-iron,
+.icon-iron 
+{
+    background-image: var(--img-iron);
+}
+
+.tile-gold,
+.icon-gold 
+{
+    background-image: var(--img-gold);
+}
+
+.tile-diamond,
+.icon-diamond
+{
+    background-image: var(--img-diamond);
+}
+
+.tile-emerald,
+.icon-emerald 
+{
+    background-image: var(--img-emerald);
+}
+
+.tile-redstone,
+.icon-redstone 
+{
+    background-image: var(--img-redstone);
+}
+
+.tile-oak-log,
+.icon-oak-log 
+{
+    background-image: var(--img-oak-log);
+}
+
+.tile-oak-leaves,
+.icon-oak-leaves
+{
+    background-image: var(--img-oak-leaves);
+}
+
+.tile-sky,
+.tile-empty 
+{
+    background: transparent;
+}

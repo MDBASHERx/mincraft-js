@@ -1,0 +1,311 @@
+/* =========================================================
+   GAME
+========================================================= */
+
+.game-body 
+{
+    overflow: hidden;
+    background: #78c6ff;
+}
+
+.game-screen 
+{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(#75cdfd 0%, #9de7ff 56%, #5fa83a 56%, #5fa83a 100%);
+}
+
+/* =========================================================
+   WORLD
+========================================================= */
+
+.world 
+{
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: repeat(var(--world-columns, 38), 1fr);
+    grid-template-rows: repeat(var(--world-rows, 20), 1fr);
+    z-index: 2;
+}
+
+/* =========================================================
+   TILES
+========================================================= */
+
+.tile 
+{
+    border: 0;
+    outline: 1px solid rgba(0, 0, 0, .06);
+    cursor: crosshair;
+    transition: filter .08s ease, transform .08s ease;
+}
+
+.tile:hover:not(.tile-sky):not(.tile-empty) 
+{
+    filter: brightness(1.2);
+    transform: scale(1.04);
+    z-index: 5;
+}
+
+.tile-sky,
+.tile-empty 
+{
+    cursor: default;
+    outline-color: transparent;
+}
+
+.tile-sky:hover,
+.tile-empty:hover 
+{
+    filter: none;
+    transform: none;
+}
+
+.tile-breaking 
+{
+    animation: breakShake .14s infinite;
+    filter: brightness(1.45) saturate(1.25);
+}
+
+/* =========================================================
+   HUD
+========================================================= */
+
+.hud 
+{
+    position: fixed;
+    top: 18px;
+    left: 18px;
+    z-index: 20;
+    min-width: 150px;
+    padding: 9px 12px;
+    border: 3px solid #000;
+    background: rgba(25, 25, 25, .62);
+    box-shadow:
+        inset 2px 2px 0 rgba(255,255,255,.28),
+        inset -2px -2px 0 rgba(0,0,0,.45);
+    font-size: 15px;
+    text-shadow: 2px 2px #000;
+}
+
+/* =========================================================
+   HOTBAR
+========================================================= */
+
+.hotbar 
+{
+    position: fixed;
+    left: 50%;
+    bottom: 22px;
+    transform: translateX(-50%);
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 7px;
+    border: 4px solid #111;
+    background: rgba(62,62,62,.86);
+    box-shadow:
+        inset 3px 3px 0 rgba(255,255,255,.25),
+        inset -3px -3px 0 rgba(0,0,0,.55),
+        0 10px 0 rgba(0,0,0,.28);
+}
+
+.hotbar_slot,
+.inventory_item 
+{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 58px;
+    height: 58px;
+    border: 3px solid #000;
+    background: #8b8b8b;
+    box-shadow:
+        inset 3px 3px 0 #d7d7d7,
+        inset -3px -3px 0 #3b3b3b;
+    transition: transform .12s ease, filter .12s ease;
+}
+
+.hotbar_slot:hover,
+.inventory_item:hover 
+{
+    transform: scale(1.05);
+}
+
+.hotbar_slot--active,
+.inventory_item--active 
+{
+    outline: 4px solid #fff47a;
+    outline-offset: 2px;
+    filter: brightness(1.12);
+}
+
+.hotbar_slot img 
+{
+    width: calc(58px - 10px);
+    height: calc(58px - 10px);
+    object-fit: contain;
+    image-rendering: pixelated;
+    pointer-events: none;
+    user-select: none;
+}
+
+.hotbar_key 
+{
+    position: absolute;
+    right: 4px;
+    bottom: 2px;
+    color: #fff;
+    font-size: 16px;
+    text-shadow: 2px 2px #000;
+}
+
+.hotbar_items 
+{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    max-width: min(64vw, 670px);
+    overflow-x: auto;
+    padding: 4px;
+}
+
+/* =========================================================
+   INVENTORY
+========================================================= */
+
+.inventory_item 
+{
+    flex-shrink: 0;
+}
+
+.inventory_icon 
+{
+    width: calc(58px - 10px);
+    height: calc(58px - 10px);
+    object-fit: contain;
+    image-rendering: pixelated;
+    pointer-events: none;
+    user-select: none;
+}
+
+.inventory_count 
+{
+    position: absolute;
+    right: 4px;
+    bottom: 2px;
+    color: #fff;
+    font-size: 16px;
+    text-shadow: 2px 2px #000;
+}
+
+/* =========================================================
+   GAME ACTIONS
+========================================================= */
+
+.game-actions 
+{
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    z-index: 35;
+    display: flex;
+    gap: 9px;
+}
+
+/* =========================================================
+   LOADING SCREEN
+========================================================= */
+
+.loading-screen 
+{
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    z-index: 9999;
+    text-align: center;
+    background: #151515;
+    transition: opacity .35s ease, visibility .35s ease;
+}
+
+.loading-screen.hidden 
+{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-screen h2
+{
+    font-size: 72px;
+    text-shadow: 4px 4px #000;
+}
+
+.loading-screen p 
+{
+    font-size: 26px;
+}
+
+.loading-bar 
+{
+    width: 520px;
+    height: 18px;
+    overflow: hidden;
+    border: 3px solid #fff;
+    background: #333;
+}
+
+.loading-bar span 
+{
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #7bc84f;
+    transform-origin: left;
+    animation: loadingFill 1s ease-out both;
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes breakShake 
+{
+    0%,
+    100% 
+    {
+        transform: translate(0);
+    }
+    25% 
+    {
+        transform: translate(2px, -1px);
+    }
+    50% 
+    {
+        transform: translate(-2px, 1px);
+    }
+    75% 
+    {
+        transform: translate(1px, 2px);
+    }
+}
+
+@keyframes loadingFill 
+{
+    from 
+    {
+        transform: scaleX(0);
+    }
+    to 
+    {
+        transform: scaleX(1);
+    }
+}

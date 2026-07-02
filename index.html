@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft 2D</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/blocks.css">
+    <link rel="stylesheet" href="./css/landing.css">
+</head>
+
+<body class="landing-body">
+    <audio id="backgroundMusic" loop muted>
+        <source src="./assets/audio/menu.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Background -->
+    <section class="scene" aria-hidden="true">
+        <span class="scene_float icon-diamond" style="--x:8%; --delay:0s;"></span>
+        <span class="scene_float icon-gold" style="--x:22%; --delay:1.4s;"></span>
+        <span class="scene_float icon-emerald" style="--x:78%; --delay:0.7s;"></span>
+        <span class="scene_float icon-redstone" style="--x:90%; --delay:2.1s;"></span>
+    </section>
+
+    <!-- Main Menu -->
+    <main class="landing">
+        <section class="landing_logo">
+            <h1 class="landing_title">
+                <span class="landing_title-row">MINECRAFT</span>
+                <span class="landing_title-row landing_title-row--accent">2D</span>
+            </h1>
+
+            <p class="landing_splash" id="splashText"></p>
+        </section>
+
+        <nav class="landing_actions">
+            <a class="button button--primary" id="startBtn" href="./game.html">Singleplayer</a>
+            <button class="button button--secondary" id="tutorialBtn" type="button">How To Play</button>
+        </nav>
+    </main>
+
+    <!-- Controls -->
+    <aside class="floating-controls">
+        <button class="icon-button" id="soundBtn" type="button" title="Sound">🔊</button>
+    </aside>
+
+    <!-- Tutorial -->
+    <dialog class="tutorial" id="tutorialDialog">
+        <article class="tutorial_content">
+            <h2>How To Play</h2>
+            <ol>
+                <li>Press <strong>1</strong>, <strong>2</strong> or <strong>3</strong> to select a tool.</li>
+                <li>Break blocks using the correct tool.</li>
+                <li>Collected blocks appear in your inventory.</li>
+                <li>Select a block and click an empty tile to place it.</li>
+                <li>Press <strong>Esc</strong> to clear the selection.</li>
+            </ol>
+
+            <button class="button button--primary" id="closeTutorialBtn" type="button">Done</button>
+        </article>
+    </dialog>
+
+    <!-- Scripts -->
+    <script src="./js/landing.js"></script>
+</body>
+</html>
